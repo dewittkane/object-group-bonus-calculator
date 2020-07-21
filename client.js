@@ -42,14 +42,6 @@ const employees = [
 
 console.log( employees );
 
-// start for of loop
-function finalFunction(employeeArray) {
-  for (let employee of employeeArray) {
-    console.log(bonusedEmployee(employee));
-  }
-}
-
-
 function bonusedEmployee ( employee ) {
   let bonusPercentage = 0;
   let totalCompensation = 0;
@@ -71,14 +63,21 @@ function bonusedEmployee ( employee ) {
   } //end if for extra bonus
 
   if (employee.annualSalary > 65000){
-  bonusPercentage -= 1;
+    bonusPercentage -= 1;
   } //end if for salary > 65000
 
-  if ( bonusPercentage > 13 ) {
-    bonusPercentage = 13;
-  } else if ( bonusPercentage < 0 ) {
-    bonusPercentage = 0;
-  } // sets minimums and maximums
+  // if ( bonusPercentage > 13 ) {
+  //   bonusPercentage = 13;
+  // } else if ( bonusPercentage < 0 ) {
+  //   bonusPercentage = 0;
+  // } // sets minimums and maximums
+
+  bonusPercentage = Math.min(Math.max(bonusPercentage, 0), 13)
+  // This is an alternate method for setting a minimum and maximum value that Paul found.
+
+  //function value_limit(val, min, max) {
+  //  return val < min ? min : (val > max ? max : val);
+  // }
 
   totalBonus = Math.floor(employee.annualSalary * (bonusPercentage / 100)); 
   // calculates totalBonus
@@ -93,10 +92,15 @@ function bonusedEmployee ( employee ) {
     totalBonus: totalBonus
   };
   //creating new object
-  return employeeWithBonus
+  return employeeWithBonus;
   //returns new object
 }; // end bonusEmployee function
 
+// final function with for of loop
+function finalFunction(employeeArray) {
+  for (let employee of employeeArray) {
+    console.log(bonusedEmployee(employee));
+  }; // end for loop
+}; // end function
 
-finalFunction(employees);
-
+finalFunction( employees );
