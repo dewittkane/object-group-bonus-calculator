@@ -42,6 +42,14 @@ const employees = [
 
 console.log( employees );
 
+// start for of loop
+function finalFunction(employeeArray) {
+  for (let employee of employeeArray) {
+    console.log(bonusedEmployee(employee));
+  }
+}
+
+
 function bonusedEmployee ( employee ) {
   let bonusPercentage = 0;
   let totalCompensation = 0;
@@ -90,11 +98,5 @@ function bonusedEmployee ( employee ) {
 }; // end bonusEmployee function
 
 
-
-console.log(bonusedEmployee(employees[0]));
-console.log(bonusedEmployee(employees[1]));
-console.log(bonusedEmployee(employees[2]));
-console.log(bonusedEmployee(employees[3]));
-console.log(bonusedEmployee(employees[4]));
-
+finalFunction(employees);
 
