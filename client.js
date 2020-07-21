@@ -72,6 +72,11 @@ function bonusedEmployee ( employee ) {
     bonusPercentage = 0;
   } // sets minimums and maximums
 
+  totalBonus = Math.floor(employee.annualSalary * (bonusPercentage / 100)); 
+  // calculates totalBonus
+
+  totalCompensation = Number(employee.annualSalary) + totalBonus;
+  // calculates totalCompensation
   
   let employeeWithBonus = {
     name: employee.name,
@@ -82,11 +87,14 @@ function bonusedEmployee ( employee ) {
   //creating new object
   return employeeWithBonus
   //returns new object
-}; // end function
+}; // end bonusEmployee function
+
+
 
 console.log(bonusedEmployee(employees[0]));
 console.log(bonusedEmployee(employees[1]));
 console.log(bonusedEmployee(employees[2]));
 console.log(bonusedEmployee(employees[3]));
-console.log(employees[0].employeeNumber.length);
+console.log(bonusedEmployee(employees[4]));
+
 
