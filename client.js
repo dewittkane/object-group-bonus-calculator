@@ -42,6 +42,8 @@ const employees = [
 
 console.log( employees );
 
+$(document).ready(finalFunction(employees));
+
 function bonusedEmployee ( employee ) {
   let bonusPercentage = 0;
   let totalCompensation = 0;
@@ -98,9 +100,17 @@ function bonusedEmployee ( employee ) {
 
 // final function with for of loop
 function finalFunction(employeeArray) {
+  console.log('Page is working, final function is running');
+  let el = $("#employees");
+  el.empty('');
   for (let employee of employeeArray) {
     console.log(bonusedEmployee(employee));
+    el.append(`<p>${bonusedEmployee(employee)}</p>`);
   }; // end for loop
 }; // end function
 
-finalFunction( employees );
+//finalFunction( employees );
+
+
+
+//el.append(`<li>${car.year} ${car.make} ${car.model}</li>`);
